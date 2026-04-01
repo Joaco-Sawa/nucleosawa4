@@ -1,0 +1,112 @@
+.floating-label-group {
+  position: relative;
+  width: 100%;
+}
+
+.floating-label-group .relative {
+  position: relative;
+  width: 100%;
+}
+
+.floating-label-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  z-index: 1;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+  pointer-events: none;
+}
+
+.floating-label-input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 12px 44px 12px 44px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #111827;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.floating-label-input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.floating-label-input:focus {
+  border-color: #ff8000;
+  box-shadow: 0 0 0 3px rgba(255, 128, 0, 0.1);
+  background-color: #fffbf7;
+}
+
+.floating-label-input:focus + .floating-label,
+.floating-label-input:not(:placeholder-shown) + .floating-label {
+  opacity: 1;
+  transform: translateY(-20px) scale(0.875);
+  color: #ff8000;
+  font-weight: 500;
+}
+
+.floating-label-input:focus ~ .floating-label-icon {
+  color: #ff8000;
+}
+
+.floating-label {
+  position: absolute;
+  left: 14px;
+  top: -8px;
+  font-size: 14px;
+  color: #6b7280;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(0) scale(1);
+  transform-origin: left top;
+  pointer-events: none;
+  background-color: #ffffff;
+  padding: 0 4px;
+  margin-left: 0;
+}
+
+.floating-label-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #9ca3af;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.floating-label-toggle:hover {
+  color: #4b5563;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.floating-label-toggle:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-label-icon,
+  .floating-label-input,
+  .floating-label,
+  .floating-label-toggle {
+    transition: none;
+  }
+}
